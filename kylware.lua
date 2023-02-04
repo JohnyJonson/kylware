@@ -1,3 +1,4 @@
+
 -- Gui to Lua
 -- Version: 3.2
 
@@ -10,8 +11,6 @@ local UICorner = Instance.new("UICorner")
 local ArrayListButton = Instance.new("TextButton")
 local UICorner_2 = Instance.new("UICorner")
 local UICorner_3 = Instance.new("UICorner")
-local HeatSeekeroption = Instance.new("TextButton")
-local UICorner_4 = Instance.new("UICorner")
 local Arraylist = Instance.new("Frame")
 local MCTexturesLabel = Instance.new("TextLabel")
 local ArrayListLabel = Instance.new("TextLabel")
@@ -64,20 +63,6 @@ UICorner_2.Parent = ArrayListButton
 
 UICorner_3.Parent = tab1
 
-HeatSeekeroption.Name = "HeatSeekeroption"
-HeatSeekeroption.Parent = tab1
-HeatSeekeroption.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
-HeatSeekeroption.Position = UDim2.new(0.995000005, 0, 0.980000019, 0)
-HeatSeekeroption.Size = UDim2.new(0, 200, 0, 50)
-HeatSeekeroption.Font = Enum.Font.SourceSans
-HeatSeekeroption.Text = "HeatSeeker"
-HeatSeekeroption.TextColor3 = Color3.fromRGB(255, 255, 255)
-HeatSeekeroption.TextScaled = true
-HeatSeekeroption.TextSize = 14.000
-HeatSeekeroption.TextWrapped = true
-
-UICorner_4.Parent = HeatSeekeroption
-
 Arraylist.Name = "Arraylist"
 Arraylist.Parent = kylware
 Arraylist.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -89,11 +74,10 @@ MCTexturesLabel.Name = "MCTextures Label"
 MCTexturesLabel.Parent = Arraylist
 MCTexturesLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MCTexturesLabel.BackgroundTransparency = 1.000
-MCTexturesLabel.Position = UDim2.new(-0.101190478, 0, -0.0359281451, 0)
+MCTexturesLabel.Position = UDim2.new(0.208333328, 0, 0.092814371, 0)
 MCTexturesLabel.Size = UDim2.new(0, 200, 0, 50)
-MCTexturesLabel.Visible = false
 MCTexturesLabel.Font = Enum.Font.SourceSans
-MCTexturesLabel.Text = "Speed/Heatseeker"
+MCTexturesLabel.Text = "Speed"
 MCTexturesLabel.TextColor3 = Color3.fromRGB(158, 0, 221)
 MCTexturesLabel.TextSize = 26.000
 MCTexturesLabel.TextStrokeTransparency = 0.630
@@ -103,9 +87,8 @@ ArrayListLabel.Name = "ArrayListLabel"
 ArrayListLabel.Parent = Arraylist
 ArrayListLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ArrayListLabel.BackgroundTransparency = 1.000
-ArrayListLabel.Position = UDim2.new(0.142857149, 0, 0.0269461069, 0)
+ArrayListLabel.Position = UDim2.new(0.160714298, 0, 0.0269461069, 0)
 ArrayListLabel.Size = UDim2.new(0, 200, 0, 50)
-ArrayListLabel.Visible = false
 ArrayListLabel.Font = Enum.Font.SourceSans
 ArrayListLabel.Text = "ArrayList"
 ArrayListLabel.TextColor3 = Color3.fromRGB(158, 0, 221)
@@ -115,7 +98,7 @@ ArrayListLabel.TextWrapped = true
 
 -- Scripts:
 
-local function FZGFLKR_fake_script() -- SpeedBtn.Mainscript 
+local function FYML_fake_script() -- SpeedBtn.Mainscript 
 	local script = Instance.new('LocalScript', SpeedBtn)
 
 	script.Parent.Activated:Connect(function()
@@ -135,8 +118,8 @@ local function FZGFLKR_fake_script() -- SpeedBtn.Mainscript
 	end)
 	
 end
-coroutine.wrap(FZGFLKR_fake_script)()
-local function IWQRG_fake_script() -- ArrayListButton.Mainscript 
+coroutine.wrap(FYML_fake_script)()
+local function DWGMG_fake_script() -- ArrayListButton.Mainscript 
 	local script = Instance.new('LocalScript', ArrayListButton)
 
 	script.Parent.Activated:Connect(function()
@@ -153,32 +136,4 @@ local function IWQRG_fake_script() -- ArrayListButton.Mainscript
 		end
 	end)
 end
-coroutine.wrap(IWQRG_fake_script)()
-local function PMHL_fake_script() -- HeatSeekeroption.Mainscript 
-	local script = Instance.new('LocalScript', HeatSeekeroption)
-
-	script.Parent.Activated:Connect(function()
-	
-		local activated = false
-		if not activated then
-			activated = true
-			script.Parent.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-			script.Parent.Parent.Parent.Arraylist["MCTextures Label"].Visible = true
-			while wait(0.5) do
-				task.wait(0.5)
-				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 24.23
-				wait(0.49)
-				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-			end
-	
-		else
-			activated = false
-			script.Parent.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
-			script.Parent.Parent.Parent.Arraylist["MCTextures Label"].Visible = false
-		end
-	end)
-	
-end
-coroutine.wrap(PMHL_fake_script)()
-
-
+coroutine.wrap(DWGMG_fake_script)()
