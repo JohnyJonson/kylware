@@ -14,7 +14,6 @@ userinput.InputBegan:Connect(function(input)
 if input.KeyCode == Enum.KeyCode.RightShift then
 tab1.Visible = not tab1.Visible
 end
-
 --Properties:
 
 kylware.Name = "kylware"
@@ -132,6 +131,7 @@ local function ZIJZSLC_fake_script() -- ArrayListButton.Mainscript
 		end
 	end)
 end
-coroutine.wrap(ZIJZSLC_fake_script)()
+end)
 end
+coroutine.wrap(ZIJZSLC_fake_script)()
 
