@@ -14,7 +14,7 @@ userinput.InputBegan:Connect(function(input)
 if input.KeyCode == Enum.KeyCode.RightShift then
 tab1.Visible = not tab1.Visible
 end
-end
+
 --Properties:
 
 kylware.Name = "kylware"
