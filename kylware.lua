@@ -91,6 +91,7 @@ MCTexturesLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MCTexturesLabel.BackgroundTransparency = 1.000
 MCTexturesLabel.Position = UDim2.new(-0.101190478, 0, -0.0359281451, 0)
 MCTexturesLabel.Size = UDim2.new(0, 200, 0, 50)
+MCTexturesLabel.Visible = false
 MCTexturesLabel.Font = Enum.Font.SourceSans
 MCTexturesLabel.Text = "Speed/Heatseeker"
 MCTexturesLabel.TextColor3 = Color3.fromRGB(158, 0, 221)
@@ -104,6 +105,7 @@ ArrayListLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ArrayListLabel.BackgroundTransparency = 1.000
 ArrayListLabel.Position = UDim2.new(0.142857149, 0, 0.0269461069, 0)
 ArrayListLabel.Size = UDim2.new(0, 200, 0, 50)
+ArrayListLabel.Visible = false
 ArrayListLabel.Font = Enum.Font.SourceSans
 ArrayListLabel.Text = "ArrayList"
 ArrayListLabel.TextColor3 = Color3.fromRGB(158, 0, 221)
@@ -113,7 +115,7 @@ ArrayListLabel.TextWrapped = true
 
 -- Scripts:
 
-local function BURGRJ_fake_script() -- SpeedBtn.Mainscript 
+local function GRFJKYJ_fake_script() -- SpeedBtn.Mainscript 
 	local script = Instance.new('LocalScript', SpeedBtn)
 
 	script.Parent.Activated:Connect(function()
@@ -133,8 +135,8 @@ local function BURGRJ_fake_script() -- SpeedBtn.Mainscript
 	end)
 	
 end
-coroutine.wrap(BURGRJ_fake_script)()
-local function RXZGQRC_fake_script() -- ArrayListButton.Mainscript 
+coroutine.wrap(GRFJKYJ_fake_script)()
+local function VVDQPR_fake_script() -- ArrayListButton.Mainscript 
 	local script = Instance.new('LocalScript', ArrayListButton)
 
 	script.Parent.Activated:Connect(function()
@@ -151,8 +153,8 @@ local function RXZGQRC_fake_script() -- ArrayListButton.Mainscript
 		end
 	end)
 end
-coroutine.wrap(RXZGQRC_fake_script)()
-local function ZOUCQW_fake_script() -- HeatSeekeroption.Mainscript 
+coroutine.wrap(VVDQPR_fake_script)()
+local function QDNJOZ_fake_script() -- HeatSeekeroption.Mainscript 
 	local script = Instance.new('LocalScript', HeatSeekeroption)
 
 	script.Parent.Activated:Connect(function()
@@ -178,5 +180,5 @@ local function ZOUCQW_fake_script() -- HeatSeekeroption.Mainscript
 	end)
 	
 end
-coroutine.wrap(ZOUCQW_fake_script)()
+coroutine.wrap(QDNJOZ_fake_script)()
 
