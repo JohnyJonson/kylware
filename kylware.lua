@@ -1,4 +1,4 @@
-if game.Players.LocalPlayer.Name == "II11IlllllIIllII1II" or "myswadsWW" then
+
 local kylware = Instance.new("ScreenGui")
 local tab1 = Instance.new("TextLabel")
 local MCButton = Instance.new("TextButton")
@@ -13,7 +13,9 @@ local userinput = game:GetService("UserInputService")
 userinput.InputBegan:Connect(function(input)
 if input.KeyCode == Enum.KeyCode.RightShift then
 tab1.Visible = not tab1.Visible
+
 end
+end)
 --Properties:
 
 kylware.Name = "kylware"
@@ -112,7 +114,6 @@ local function AKRWB_fake_script() -- MCButton.Mainscript
 			script.Parent.Parent.Parent.Arraylist["MCTextures Label"].Visible = false
 		end
 	end)
-	
 end
 coroutine.wrap(AKRWB_fake_script)()
 local function ZIJZSLC_fake_script() -- ArrayListButton.Mainscript 
@@ -131,7 +132,6 @@ local function ZIJZSLC_fake_script() -- ArrayListButton.Mainscript
 		end
 	end)
 end
-end)
-end
 coroutine.wrap(ZIJZSLC_fake_script)()
+
 
