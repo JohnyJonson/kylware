@@ -19,7 +19,7 @@ local ArrayListLabel = Instance.new("TextLabel")
 --Properties:
 
 kylware.Name = "kylware"
-kylware.Parent = game:GetService("CoreGui")
+kylware.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 kylware.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 tab1.Name = "tab1"
@@ -115,7 +115,7 @@ ArrayListLabel.TextWrapped = true
 
 -- Scripts:
 
-local function GRFJKYJ_fake_script() -- SpeedBtn.Mainscript 
+local function FZGFLKR_fake_script() -- SpeedBtn.Mainscript 
 	local script = Instance.new('LocalScript', SpeedBtn)
 
 	script.Parent.Activated:Connect(function()
@@ -135,8 +135,8 @@ local function GRFJKYJ_fake_script() -- SpeedBtn.Mainscript
 	end)
 	
 end
-coroutine.wrap(GRFJKYJ_fake_script)()
-local function VVDQPR_fake_script() -- ArrayListButton.Mainscript 
+coroutine.wrap(FZGFLKR_fake_script)()
+local function IWQRG_fake_script() -- ArrayListButton.Mainscript 
 	local script = Instance.new('LocalScript', ArrayListButton)
 
 	script.Parent.Activated:Connect(function()
@@ -153,8 +153,8 @@ local function VVDQPR_fake_script() -- ArrayListButton.Mainscript
 		end
 	end)
 end
-coroutine.wrap(VVDQPR_fake_script)()
-local function QDNJOZ_fake_script() -- HeatSeekeroption.Mainscript 
+coroutine.wrap(IWQRG_fake_script)()
+local function PMHL_fake_script() -- HeatSeekeroption.Mainscript 
 	local script = Instance.new('LocalScript', HeatSeekeroption)
 
 	script.Parent.Activated:Connect(function()
@@ -164,13 +164,12 @@ local function QDNJOZ_fake_script() -- HeatSeekeroption.Mainscript
 			activated = true
 			script.Parent.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 			script.Parent.Parent.Parent.Arraylist["MCTextures Label"].Visible = true
-			
-			repeat
+			while wait(0.5) do
 				task.wait(0.5)
 				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 24.23
 				wait(0.49)
 				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-			until activated == false
+			end
 	
 		else
 			activated = false
@@ -180,5 +179,6 @@ local function QDNJOZ_fake_script() -- HeatSeekeroption.Mainscript
 	end)
 	
 end
-coroutine.wrap(QDNJOZ_fake_script)()
+coroutine.wrap(PMHL_fake_script)()
+
 
