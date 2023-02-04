@@ -82,7 +82,7 @@ MCTexturesLabel.TextColor3 = Color3.fromRGB(158, 0, 221)
 MCTexturesLabel.TextSize = 26.000
 MCTexturesLabel.TextStrokeTransparency = 0.630
 MCTexturesLabel.TextWrapped = true
-
+MCTexturesLabel.Visible = false
 ArrayListLabel.Name = "ArrayListLabel"
 ArrayListLabel.Parent = Arraylist
 ArrayListLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -95,7 +95,7 @@ ArrayListLabel.TextColor3 = Color3.fromRGB(158, 0, 221)
 ArrayListLabel.TextSize = 26.000
 ArrayListLabel.TextStrokeTransparency = 0.630
 ArrayListLabel.TextWrapped = true
-
+ArrayListLabel.Visible = false
 -- Scripts:
 
 local function FYML_fake_script() -- SpeedBtn.Mainscript 
