@@ -19,7 +19,7 @@ local ArrayListLabel = Instance.new("TextLabel")
 --Properties:
 
 kylware.Name = "kylware"
-kylware.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+kylware.Parent = game:GetService("CoreGui")
 kylware.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 tab1.Name = "tab1"
