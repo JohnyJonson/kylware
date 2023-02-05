@@ -1,5 +1,10 @@
 --client by ya know :)
 
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local AzuC = Instance.new("ScreenGui")
 local Tab1 = Instance.new("Frame")
 local TabName = Instance.new("TextLabel")
@@ -12,7 +17,7 @@ local ArrayList = Instance.new("Frame")
 local speedlabel = Instance.new("TextLabel")
 local esplabel = Instance.new("TextLabel")
 
-
+--Properties:
 
 AzuC.Name = "AzuC"
 AzuC.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -104,7 +109,7 @@ esplabel.TextWrapped = true
 
 -- Scripts:
 
-local function RNRNXZ_fake_script() -- SpeedButton.speedScript 
+local function OTXSFN_fake_script() -- SpeedButton.speedScript 
 	local script = Instance.new('LocalScript', SpeedButton)
 
 	script.Parent.Activated:Connect(function()
@@ -120,21 +125,21 @@ local function RNRNXZ_fake_script() -- SpeedButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(RNRNXZ_fake_script)()
-local function ZFIB_fake_script() -- espButton.EspScript 
+coroutine.wrap(OTXSFN_fake_script)()
+local function OVWSLOJ_fake_script() -- espButton.EspScript 
 	local script = Instance.new('LocalScript', espButton)
 
 	script.Parent.Activated:Connect(function()
 		if script.Parent.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
 			game.Players.PlayerAdded:Connect(function(plr)
-				local highlight = Instance.new("Highlight", plr.Character)
+				local highlight = Instance.new("Highlight", plr)
 				highlight.FillColor = Color3.fromRGB(0, 13, 255)
 			end)
 			script.Parent.BackgroundColor3  = Color3.fromRGB(62, 255, 8)
 			script.Parent.Parent.Parent.ArrayList.esplabel.Visible = true
 		else
 			game.Players.PlayerAdded:Connect(function(plr)
-				plr.Character:WaitForChild("Highlight"):Destroy()
+				plr:WaitForChild("Highlight"):Destroy()
 			end)
 			script.Parent.BackgroundColor3 = Color3.fromRGB(42,42,42)
 			script.Parent.Parent.Parent.ArrayList.esplabel.Visible = false
@@ -142,15 +147,15 @@ local function ZFIB_fake_script() -- espButton.EspScript
 		end
 	end)
 end
-coroutine.wrap(ZFIB_fake_script)()
-local function BMNNWWK_fake_script() -- AzuC.CoreGuiParent 
+coroutine.wrap(OVWSLOJ_fake_script)()
+local function UISQR_fake_script() -- AzuC.CoreGuiParent 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local CoreGui = game:GetService("CoreGui")
 	script.Parent.Parent = CoreGui
 end
-coroutine.wrap(BMNNWWK_fake_script)()
-local function JKSCGDP_fake_script() -- AzuC.LocalScript 
+coroutine.wrap(UISQR_fake_script)()
+local function XMHA_fake_script() -- AzuC.LocalScript 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local userinputservice = game:GetService("UserInputService")
@@ -159,5 +164,21 @@ local function JKSCGDP_fake_script() -- AzuC.LocalScript
 			script.Parent.Tab1.Visible = not script.Parent.Tab1.Visible
 		end
 	end)
+	--nametag
+	local ServerScriptService = game:GetService("ServerScriptService")
+	local ChatService = require(ServerScriptService:WaitForChild("ChatServiceRunner"):WaitForChild("ChatService"))
+	local Players = game:GetService("Players")
+	
+	local Owner = {'myswadsWW'} --Change YOUR NAME to your username
+	
+	ChatService.SpeakerAdded:Connect(function(PlrName)
+		local Speaker = ChatService:GetSpeaker(PlrName)
+		for _, v in pairs(Owner) do
+			if Players[PlrName].Name == v then
+				Speaker:SetExtraData('Tags', {{TagText = "AzuC PRIVATE", TagColor = Color3.fromRGB(132, 14, 136)}})
+			end
+		end
+	end)
+	
 end
-coroutine.wrap(JKSCGDP_fake_script)()
+coroutine.wrap(XMHA_fake_script)()
