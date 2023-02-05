@@ -1,8 +1,3 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
 local AzuC = Instance.new("ScreenGui")
 local Tab1 = Instance.new("Frame")
 local TabName = Instance.new("TextLabel")
@@ -11,9 +6,12 @@ local UICorner = Instance.new("UICorner")
 local UICorner_2 = Instance.new("UICorner")
 local espButton = Instance.new("TextButton")
 local UICorner_3 = Instance.new("UICorner")
+local DamageIndicatorButton = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
 local ArrayList = Instance.new("Frame")
 local speedlabel = Instance.new("TextLabel")
 local esplabel = Instance.new("TextLabel")
+local indicatorlabel = Instance.new("TextLabel")
 
 --Properties:
 
@@ -70,6 +68,20 @@ espButton.TextWrapped = true
 
 UICorner_3.Parent = espButton
 
+DamageIndicatorButton.Name = "DamageIndicatorButton"
+DamageIndicatorButton.Parent = Tab1
+DamageIndicatorButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+DamageIndicatorButton.Position = UDim2.new(0, 0, 2.81999993, 0)
+DamageIndicatorButton.Size = UDim2.new(0, 160, 0, 50)
+DamageIndicatorButton.Font = Enum.Font.SourceSans
+DamageIndicatorButton.Text = "Indicator"
+DamageIndicatorButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+DamageIndicatorButton.TextScaled = true
+DamageIndicatorButton.TextSize = 14.000
+DamageIndicatorButton.TextWrapped = true
+
+UICorner_4.Parent = DamageIndicatorButton
+
 ArrayList.Name = "ArrayList"
 ArrayList.Parent = AzuC
 ArrayList.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
@@ -105,9 +117,23 @@ esplabel.TextSize = 22.000
 esplabel.TextStrokeTransparency = 0.330
 esplabel.TextWrapped = true
 
+indicatorlabel.Name = "indicatorlabel"
+indicatorlabel.Parent = ArrayList
+indicatorlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+indicatorlabel.BackgroundTransparency = 1.000
+indicatorlabel.Position = UDim2.new(0.174107149, 0, 0.13131313, 0)
+indicatorlabel.Size = UDim2.new(0, 200, 0, 50)
+indicatorlabel.Visible = false
+indicatorlabel.Font = Enum.Font.Code
+indicatorlabel.Text = "CustomIndicator"
+indicatorlabel.TextColor3 = Color3.fromRGB(147, 1, 188)
+indicatorlabel.TextSize = 22.000
+indicatorlabel.TextStrokeTransparency = 0.330
+indicatorlabel.TextWrapped = true
+
 -- Scripts:
 
-local function TZFQG_fake_script() -- SpeedButton.speedScript 
+local function VFIFJB_fake_script() -- SpeedButton.speedScript 
 	local script = Instance.new('LocalScript', SpeedButton)
 
 	script.Parent.Activated:Connect(function()
@@ -123,8 +149,8 @@ local function TZFQG_fake_script() -- SpeedButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(TZFQG_fake_script)()
-local function QJPRQV_fake_script() -- espButton.EspScript 
+coroutine.wrap(VFIFJB_fake_script)()
+local function JZHVP_fake_script() -- espButton.EspScript 
 	local script = Instance.new('LocalScript', espButton)
 
 	script.Parent.Activated:Connect(function()
@@ -185,15 +211,95 @@ local function QJPRQV_fake_script() -- espButton.EspScript
 		end
 	end)
 end
-coroutine.wrap(QJPRQV_fake_script)()
-local function GETGJG_fake_script() -- AzuC.CoreGuiParent 
+coroutine.wrap(JZHVP_fake_script)()
+local function GOQBP_fake_script() -- DamageIndicatorButton.speedScript 
+	local script = Instance.new('LocalScript', DamageIndicatorButton)
+
+	local players = game:GetService("Players")
+	local textservice = game:GetService("TextService")
+	local repstorage = game:GetService("ReplicatedStorage")
+	local lplr = players.LocalPlayer
+	local lighting = game:GetService("Lighting")
+	local cam = workspace.CurrentCamera
+	workspace:GetPropertyChangedSignal("CurrentCamera"):Connect(function()
+		cam = (workspace.CurrentCamera or workspace:FindFirstChild("Camera") or Instance.new("Camera"))
+	end)
+	local targetinfo = shared.VapeTargetInfo
+	local collectionservice = game:GetService("CollectionService")
+	local uis = game:GetService("UserInputService")
+	local mouse = lplr:GetMouse()
+	local bedwars = {}
+	local bedwarsblocks = {}
+	local blockraycast = RaycastParams.new()
+	blockraycast.FilterType = Enum.RaycastFilterType.Whitelist
+	local getfunctions
+	local oldchar
+	local oldcloneroot
+	local matchState = 0
+	local kit = ""
+	local antivoidypos = 0
+	local kills = 0
+	local beds = 0
+	local reported = 0
+	local lagbacks = 0
+	local otherlagbacks = 0
+	local matchstatetick = 0
+	local lagbackevent = Instance.new("BindableEvent")
+	local allowspeed = true
+	local antivoiding = false
+	local textchatservice = game:GetService("TextChatService")
+	local KnitGotten, KnitClient
+	repeat
+		task.wait()
+		KnitGotten, KnitClient = pcall(function()
+			return debug.getupvalue(require(lplr.PlayerScripts.TS.knit).setup, 6)
+		end)
+	until KnitGotten
+	repeat task.wait() until debug.getupvalue(KnitClient.Start, 1) == true
+	bedwars = {
+		
+		["DamageController"] = KnitClient.Controllers.DamageController,
+		["DamageIndicator"] = KnitClient.Controllers.DamageIndicatorController.spawnDamageIndicator,
+		["DamageIndicatorController"] = KnitClient.Controllers.DamageIndicatorController,
+		
+	}
+	local Messages = {"Pow!","Thump!","Wham!","Hit!","Smack!","Bang!","Pop!","Boom!", "Haram!", "Kabam!", "Skuuuura!", "Ablam!", "Pha pha!", "inf"}
+	local old
+	Create = old
+	
+	script.Parent.Activated:Connect(function()
+		if script.Parent.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
+			old = debug.getupvalue(bedwars["DamageIndicator"],10,{Create})
+			debug.setupvalue(bedwars["DamageIndicator"],10,{
+				Create = function(self,obj,...)
+					spawn(function()
+						pcall(function()
+							obj.Parent.Text = Messages[math.random(1,#Messages)]
+							obj.Parent.TextColor3 =  Color3.fromHSV(tick()%5/5,1,1)
+						end)
+					end)
+					return game:GetService("TweenService"):Create(obj,...)
+				end
+			})
+			script.Parent.BackgroundColor3  = Color3.fromRGB(255, 0, 4)
+			script.Parent.Parent.Parent.ArrayList.indicatorlabel.Visible = true
+		else
+			
+			script.Parent.BackgroundColor3 = Color3.fromRGB(42,42,42)
+			script.Parent.Parent.Parent.ArrayList.indicatorlabel.Visible = false
+			
+		end
+	end)
+end
+coroutine.wrap(GOQBP_fake_script)()
+local function CIVU_fake_script() -- AzuC.CoreGuiParent 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local CoreGui = game:GetService("CoreGui")
 	script.Parent.Parent = CoreGui
 end
-coroutine.wrap(GETGJG_fake_script)()
-local function FBWWC_fake_script() -- AzuC.LocalScript 
+coroutine.wrap(CIVU_fake_script)()
+local function CCGRQA_fake_script() -- AzuC.LocalScript 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local userinputservice = game:GetService("UserInputService")
@@ -219,4 +325,4 @@ local function FBWWC_fake_script() -- AzuC.LocalScript
 	end)
 	
 end
-coroutine.wrap(FBWWC_fake_script)()
+coroutine.wrap(CCGRQA_fake_script)()
