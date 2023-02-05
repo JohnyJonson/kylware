@@ -12,7 +12,7 @@ local ArrayList = Instance.new("Frame")
 local speedlabel = Instance.new("TextLabel")
 local esplabel = Instance.new("TextLabel")
 
-
+-
 
 AzuC.Name = "AzuC"
 AzuC.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -127,14 +127,14 @@ local function ZFIB_fake_script() -- espButton.EspScript
 	script.Parent.Activated:Connect(function()
 		if script.Parent.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
 			game.Players.PlayerAdded:Connect(function(plr)
-				local highlight = Instance.new("Highlight", plr)
+				local highlight = Instance.new("Highlight", plr.Character)
 				highlight.FillColor = Color3.fromRGB(0, 13, 255)
 			end)
 			script.Parent.BackgroundColor3  = Color3.fromRGB(62, 255, 8)
 			script.Parent.Parent.Parent.ArrayList.esplabel.Visible = true
 		else
 			game.Players.PlayerAdded:Connect(function(plr)
-				plr:WaitForChild("Highlight"):Destroy()
+				plr.Character:WaitForChild("Highlight"):Destroy()
 			end)
 			script.Parent.BackgroundColor3 = Color3.fromRGB(42,42,42)
 			script.Parent.Parent.Parent.ArrayList.esplabel.Visible = false
