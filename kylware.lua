@@ -4,136 +4,151 @@
 
 -- Instances:
 
-local kylware = Instance.new("ScreenGui")
-local tab1 = Instance.new("TextLabel")
-local SpeedBtn = Instance.new("TextButton")
+local AzuC = Instance.new("ScreenGui")
+local Tab1 = Instance.new("Frame")
+local TabName = Instance.new("TextLabel")
+local SpeedButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
-local ArrayListButton = Instance.new("TextButton")
 local UICorner_2 = Instance.new("UICorner")
+local HeatSeekerButton = Instance.new("TextButton")
 local UICorner_3 = Instance.new("UICorner")
-local Arraylist = Instance.new("Frame")
-local MCTexturesLabel = Instance.new("TextLabel")
-local ArrayListLabel = Instance.new("TextLabel")
+local ArrayList = Instance.new("Frame")
+local speedlabel = Instance.new("TextLabel")
 
 --Properties:
 
-kylware.Name = "kylware"
-kylware.Parent = game:GetService("CoreGui")
-kylware.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+AzuC.Name = "AzuC"
+AzuC.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+AzuC.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-tab1.Name = "tab1"
-tab1.Parent = kylware
-tab1.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
-tab1.Position = UDim2.new(0.175578609, 0, 0.0637052357, 0)
-tab1.Size = UDim2.new(0, 200, 0, 50)
-tab1.Font = Enum.Font.SourceSans
-tab1.Text = "Main"
-tab1.TextColor3 = Color3.fromRGB(255, 255, 255)
-tab1.TextScaled = true
-tab1.TextSize = 14.000
-tab1.TextWrapped = true
+Tab1.Name = "Tab1"
+Tab1.Parent = AzuC
+Tab1.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+Tab1.Position = UDim2.new(0.23044692, 0, 0.0964187384, 0)
+Tab1.Size = UDim2.new(0.159616917, 0, 0.0860881582, 0)
+Tab1.Visible = false
 
-SpeedBtn.Name = "SpeedBtn"
-SpeedBtn.Parent = tab1
-SpeedBtn.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
-SpeedBtn.Position = UDim2.new(0.00499999989, 0, 0.939999998, 0)
-SpeedBtn.Size = UDim2.new(0, 200, 0, 50)
-SpeedBtn.Font = Enum.Font.SourceSans
-SpeedBtn.Text = "Speed (max)"
-SpeedBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-SpeedBtn.TextScaled = true
-SpeedBtn.TextSize = 14.000
-SpeedBtn.TextWrapped = true
+TabName.Name = "TabName"
+TabName.Parent = Tab1
+TabName.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+TabName.BorderSizePixel = 0
+TabName.Position = UDim2.new(0.125, 0, 0.125, 0)
+TabName.Size = UDim2.new(0, 122, 0, 50)
+TabName.Font = Enum.Font.SourceSans
+TabName.Text = "Main"
+TabName.TextColor3 = Color3.fromRGB(255, 255, 255)
+TabName.TextScaled = true
+TabName.TextSize = 14.000
+TabName.TextWrapped = true
 
-UICorner.Parent = SpeedBtn
+SpeedButton.Name = "SpeedButton"
+SpeedButton.Parent = Tab1
+SpeedButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+SpeedButton.Position = UDim2.new(0, 0, 1, 0)
+SpeedButton.Size = UDim2.new(0, 160, 0, 50)
+SpeedButton.Font = Enum.Font.SourceSans
+SpeedButton.Text = "Speed"
+SpeedButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpeedButton.TextScaled = true
+SpeedButton.TextSize = 14.000
+SpeedButton.TextWrapped = true
 
-ArrayListButton.Name = "ArrayListButton"
-ArrayListButton.Parent = tab1
-ArrayListButton.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
-ArrayListButton.Position = UDim2.new(0.00499999989, 0, 1.86000001, 0)
-ArrayListButton.Size = UDim2.new(0, 200, 0, 50)
-ArrayListButton.Font = Enum.Font.SourceSans
-ArrayListButton.Text = "Array List"
-ArrayListButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-ArrayListButton.TextScaled = true
-ArrayListButton.TextSize = 14.000
-ArrayListButton.TextWrapped = true
+UICorner.Parent = SpeedButton
 
-UICorner_2.Parent = ArrayListButton
+UICorner_2.Parent = Tab1
 
-UICorner_3.Parent = tab1
+HeatSeekerButton.Name = "HeatSeekerButton"
+HeatSeekerButton.Parent = Tab1
+HeatSeekerButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+HeatSeekerButton.Position = UDim2.new(0.975000024, 0, 0.939999998, 0)
+HeatSeekerButton.Size = UDim2.new(0, 160, 0, 50)
+HeatSeekerButton.Font = Enum.Font.SourceSans
+HeatSeekerButton.Text = "HeatSeeker (button broken but works just click multiple times)"
+HeatSeekerButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+HeatSeekerButton.TextScaled = true
+HeatSeekerButton.TextSize = 14.000
+HeatSeekerButton.TextWrapped = true
 
-Arraylist.Name = "Arraylist"
-Arraylist.Parent = kylware
-Arraylist.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Arraylist.BackgroundTransparency = 1.000
-Arraylist.Position = UDim2.new(0.833000779, 0, 0, 0)
-Arraylist.Size = UDim2.new(0, 168, 0, 334)
+UICorner_3.Parent = HeatSeekerButton
 
-MCTexturesLabel.Name = "MCTextures Label"
-MCTexturesLabel.Parent = Arraylist
-MCTexturesLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-MCTexturesLabel.BackgroundTransparency = 1.000
-MCTexturesLabel.Position = UDim2.new(0.208333328, 0, 0.092814371, 0)
-MCTexturesLabel.Size = UDim2.new(0, 200, 0, 50)
-MCTexturesLabel.Font = Enum.Font.SourceSans
-MCTexturesLabel.Text = "Speed"
-MCTexturesLabel.TextColor3 = Color3.fromRGB(158, 0, 221)
-MCTexturesLabel.TextSize = 26.000
-MCTexturesLabel.TextStrokeTransparency = 0.630
-MCTexturesLabel.TextWrapped = true
-MCTexturesLabel.Visible = false
-ArrayListLabel.Name = "ArrayListLabel"
-ArrayListLabel.Parent = Arraylist
-ArrayListLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ArrayListLabel.BackgroundTransparency = 1.000
-ArrayListLabel.Position = UDim2.new(0.160714298, 0, 0.0269461069, 0)
-ArrayListLabel.Size = UDim2.new(0, 200, 0, 50)
-ArrayListLabel.Font = Enum.Font.SourceSans
-ArrayListLabel.Text = "ArrayList"
-ArrayListLabel.TextColor3 = Color3.fromRGB(158, 0, 221)
-ArrayListLabel.TextSize = 26.000
-ArrayListLabel.TextStrokeTransparency = 0.630
-ArrayListLabel.TextWrapped = true
-ArrayListLabel.Visible = false
+ArrayList.Name = "ArrayList"
+ArrayList.Parent = AzuC
+ArrayList.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ArrayList.BackgroundTransparency = 1.000
+ArrayList.Position = UDim2.new(0.77513963, 0, 0, 0)
+ArrayList.Size = UDim2.new(0, 224, 0, 495)
+
+speedlabel.Name = "speedlabel"
+speedlabel.Parent = ArrayList
+speedlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+speedlabel.BackgroundTransparency = 1.000
+speedlabel.Position = UDim2.new(0.401785702, 0, 0.167676762, 0)
+speedlabel.Size = UDim2.new(0, 200, 0, 50)
+speedlabel.Visible = false
+speedlabel.Font = Enum.Font.Code
+speedlabel.Text = "speed"
+speedlabel.TextColor3 = Color3.fromRGB(147, 1, 188)
+speedlabel.TextSize = 22.000
+speedlabel.TextStrokeTransparency = 0.330
+speedlabel.TextWrapped = true
+
 -- Scripts:
 
-local function FYML_fake_script() -- SpeedBtn.Mainscript 
-	local script = Instance.new('LocalScript', SpeedBtn)
+local function PGRUL_fake_script() -- SpeedButton.speedScript 
+	local script = Instance.new('LocalScript', SpeedButton)
 
 	script.Parent.Activated:Connect(function()
-	
-		local activated = false
-		if not activated then
-			activated = true
-			script.Parent.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-			script.Parent.Parent.Parent.Arraylist["MCTextures Label"].Visible = true
+		if script.Parent.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
 			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23
-	
+			script.Parent.BackgroundColor3  = Color3.fromRGB(255, 0, 4)
+			script.Parent.Parent.Parent.ArrayList.speedlabel.Visible = true
 		else
-			activated = false
-			script.Parent.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
-			script.Parent.Parent.Parent.Arraylist["MCTextures Label"].Visible = false
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+			script.Parent.BackgroundColor3 = Color3.fromRGB(42,42,42)
+			script.Parent.Parent.Parent.ArrayList.speedlabel.Visible = false
+			
 		end
 	end)
-	
 end
-coroutine.wrap(FYML_fake_script)()
-local function DWGMG_fake_script() -- ArrayListButton.Mainscript 
-	local script = Instance.new('LocalScript', ArrayListButton)
+coroutine.wrap(PGRUL_fake_script)()
+local function XIZG_fake_script() -- HeatSeekerButton.speedScript 
+	local script = Instance.new('LocalScript', HeatSeekerButton)
 
 	script.Parent.Activated:Connect(function()
-	
-		local activated = true
-		if activated then
-			script.Parent.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-			script.Parent.Parent.Parent.Arraylist.ArrayListLabel.Visible = true
-			script.Parent.Parent.Parent.Arraylist.Visible = true
+		if script.Parent.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
+			repeat
+				task.wait(0.5)
+				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23.88
+				wait(0.49)
+				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+			until script.Parent.BackgroundColor3 == Color3.fromRGB(42,42,42)
+			script.Parent.BackgroundColor3  = Color3.fromRGB(255, 0, 4)
+			script.Parent.Parent.Parent.ArrayList.speedlabel.Visible = true
 		else
-			script.Parent.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
-			script.Parent.Parent.Parent.Arraylist.ArrayListLabel.Visible = false
-			script.Parent.Parent.Parent.Arraylist.Visible = false
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+			script.Parent.BackgroundColor3 = Color3.fromRGB(42,42,42)
+			script.Parent.Parent.Parent.ArrayList.speedlabel.Visible = false
+			
 		end
 	end)
 end
-coroutine.wrap(DWGMG_fake_script)()
+coroutine.wrap(XIZG_fake_script)()
+local function MCLYS_fake_script() -- AzuC.CoreGuiParent 
+	local script = Instance.new('LocalScript', AzuC)
+
+	local CoreGui = game:GetService("CoreGui")
+	script.Parent.Parent = CoreGui
+end
+coroutine.wrap(MCLYS_fake_script)()
+local function BBMQA_fake_script() -- AzuC.LocalScript 
+	local script = Instance.new('LocalScript', AzuC)
+
+	local userinputservice = game:GetService("UserInputService")
+	userinputservice.InputBegan:Connect(function(input)
+		if input.KeyCode == Enum.KeyCode.RightShift then
+			script.Parent.Tab1.Visible = not script.Parent.Tab1.Visible
+		end
+	end)
+end
+coroutine.wrap(BBMQA_fake_script)()
+
