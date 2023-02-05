@@ -1,5 +1,3 @@
---client by ya know :)
-
 -- Gui to Lua
 -- Version: 3.2
 
@@ -109,7 +107,7 @@ esplabel.TextWrapped = true
 
 -- Scripts:
 
-local function OTXSFN_fake_script() -- SpeedButton.speedScript 
+local function TZFQG_fake_script() -- SpeedButton.speedScript 
 	local script = Instance.new('LocalScript', SpeedButton)
 
 	script.Parent.Activated:Connect(function()
@@ -125,21 +123,61 @@ local function OTXSFN_fake_script() -- SpeedButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(OTXSFN_fake_script)()
-local function OVWSLOJ_fake_script() -- espButton.EspScript 
+coroutine.wrap(TZFQG_fake_script)()
+local function QJPRQV_fake_script() -- espButton.EspScript 
 	local script = Instance.new('LocalScript', espButton)
 
 	script.Parent.Activated:Connect(function()
 		if script.Parent.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
-			game.Players.PlayerAdded:Connect(function(plr)
-				local highlight = Instance.new("Highlight", plr)
-				highlight.FillColor = Color3.fromRGB(0, 13, 255)
+			
+			local Players = game:GetService("Players"):GetChildren()
+			local RunService = game:GetService("RunService")
+			local highlight = Instance.new("Highlight")
+			highlight.Name = "Highlight"
+	
+			for i, v in pairs(Players) do
+				repeat wait() until v.Character
+				if not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+					local highlightClone = highlight:Clone()
+					highlightClone.Adornee = v.Character
+					highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
+					highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+					highlightClone.Name = "Highlight"
+				end
+			end
+	
+			game.Players.PlayerAdded:Connect(function(player)
+				repeat wait() until player.Character
+				if not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+					local highlightClone = highlight:Clone()
+					highlightClone.Adornee = player.Character
+					highlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
+					highlightClone.Name = "Highlight"
+				end
+			end)
+	
+			game.Players.PlayerRemoving:Connect(function(playerRemoved)
+				playerRemoved.Character:FindFirstChild("HumanoidRootPart").Highlight:Destroy()
+			end)
+	
+			RunService.Heartbeat:Connect(function()
+				for i, v in pairs(Players) do
+					repeat wait() until v.Character
+					if not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+						local highlightClone = highlight:Clone()
+						highlightClone.Adornee = v.Character
+						highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
+						highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+						highlightClone.Name = "Highlight"
+						task.wait()
+					end
+				end
 			end)
 			script.Parent.BackgroundColor3  = Color3.fromRGB(62, 255, 8)
 			script.Parent.Parent.Parent.ArrayList.esplabel.Visible = true
 		else
 			game.Players.PlayerAdded:Connect(function(plr)
-				plr:WaitForChild("Highlight"):Destroy()
+				plr.Character.HumanoidRootPart:WaitForChild("Highlight"):Destroy()
 			end)
 			script.Parent.BackgroundColor3 = Color3.fromRGB(42,42,42)
 			script.Parent.Parent.Parent.ArrayList.esplabel.Visible = false
@@ -147,15 +185,15 @@ local function OVWSLOJ_fake_script() -- espButton.EspScript
 		end
 	end)
 end
-coroutine.wrap(OVWSLOJ_fake_script)()
-local function UISQR_fake_script() -- AzuC.CoreGuiParent 
+coroutine.wrap(QJPRQV_fake_script)()
+local function GETGJG_fake_script() -- AzuC.CoreGuiParent 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local CoreGui = game:GetService("CoreGui")
 	script.Parent.Parent = CoreGui
 end
-coroutine.wrap(UISQR_fake_script)()
-local function XMHA_fake_script() -- AzuC.LocalScript 
+coroutine.wrap(GETGJG_fake_script)()
+local function FBWWC_fake_script() -- AzuC.LocalScript 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local userinputservice = game:GetService("UserInputService")
@@ -181,4 +219,4 @@ local function XMHA_fake_script() -- AzuC.LocalScript
 	end)
 	
 end
-coroutine.wrap(XMHA_fake_script)()
+coroutine.wrap(FBWWC_fake_script)()
