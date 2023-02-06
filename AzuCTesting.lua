@@ -118,7 +118,7 @@ esplabel.Name = "esplabel"
 esplabel.Parent = ArrayList
 esplabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 esplabel.BackgroundTransparency = 1.000
-esplabel.Position = UDim2.new(0.46875, 0, 0.197979793, 0)
+esplabel.Position = UDim2.new(0.504464269, 0, 0.220202014, 0)
 esplabel.Size = UDim2.new(0, 200, 0, 50)
 esplabel.Visible = false
 esplabel.Font = Enum.Font.Code
@@ -146,7 +146,7 @@ auralabel.Name = "auralabel"
 auralabel.Parent = ArrayList
 auralabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 auralabel.BackgroundTransparency = 1.000
-auralabel.Position = UDim2.new(0.4375, 0, 0.317171723, 0)
+auralabel.Position = UDim2.new(0.450892866, 0, 0.195959598, 0)
 auralabel.Size = UDim2.new(0, 200, 0, 50)
 auralabel.Visible = false
 auralabel.Font = Enum.Font.Code
@@ -193,7 +193,7 @@ UICorner_6.Parent = Tab2
 
 -- Scripts:
 
-local function CQGB_fake_script() -- SpeedButton.speedScript 
+local function GYGIA_fake_script() -- SpeedButton.speedScript 
 	local script = Instance.new('LocalScript', SpeedButton)
 
 	script.Parent.Activated:Connect(function()
@@ -209,8 +209,8 @@ local function CQGB_fake_script() -- SpeedButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(CQGB_fake_script)()
-local function QAASYV_fake_script() -- espButton.EspScript 
+coroutine.wrap(GYGIA_fake_script)()
+local function AMEU_fake_script() -- espButton.EspScript 
 	local script = Instance.new('LocalScript', espButton)
 
 	script.Parent.Activated:Connect(function()
@@ -271,8 +271,8 @@ local function QAASYV_fake_script() -- espButton.EspScript
 		end
 	end)
 end
-coroutine.wrap(QAASYV_fake_script)()
-local function QTMUIHF_fake_script() -- DamageIndicatorButton.speedScript 
+coroutine.wrap(AMEU_fake_script)()
+local function XQXX_fake_script() -- DamageIndicatorButton.speedScript 
 	local script = Instance.new('LocalScript', DamageIndicatorButton)
 
 	local players = game:GetService("Players")
@@ -325,7 +325,7 @@ local function QTMUIHF_fake_script() -- DamageIndicatorButton.speedScript
 	}
 	local Messages = {"Pow!","Thump!","Wham!","Hit!","Smack!","Bang!","Pop!","Boom!", "Haram!", "Kabam!", "Skuuuura!", "Ablam!", "Pha pha!", "inf"}
 	local old
-	local Create = old
+	Create = old
 	
 	script.Parent.Activated:Connect(function()
 		if script.Parent.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
@@ -351,15 +351,15 @@ local function QTMUIHF_fake_script() -- DamageIndicatorButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(QTMUIHF_fake_script)()
-local function RBQV_fake_script() -- AzuC.CoreGuiParent 
+coroutine.wrap(XQXX_fake_script)()
+local function QEDTBL_fake_script() -- AzuC.CoreGuiParent 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local CoreGui = game:GetService("CoreGui")
 	script.Parent.Parent = CoreGui
 end
-coroutine.wrap(RBQV_fake_script)()
-local function QAON_fake_script() -- AzuC.LocalScript 
+coroutine.wrap(QEDTBL_fake_script)()
+local function UVTTBN_fake_script() -- AzuC.LocalScript 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local userinputservice = game:GetService("UserInputService")
@@ -386,8 +386,8 @@ local function QAON_fake_script() -- AzuC.LocalScript
 	end)
 	
 end
-coroutine.wrap(QAON_fake_script)()
-local function TDZRU_fake_script() -- KillauraButton.speedScript 
+coroutine.wrap(UVTTBN_fake_script)()
+local function IADX_fake_script() -- KillauraButton.speedScript 
 	local script = Instance.new('LocalScript', KillauraButton)
 
 	
@@ -582,4 +582,4 @@ local function TDZRU_fake_script() -- KillauraButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(TDZRU_fake_script)()
+coroutine.wrap(IADX_fake_script)()
