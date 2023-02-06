@@ -193,7 +193,7 @@ UICorner_6.Parent = Tab2
 
 -- Scripts:
 
-local function GYGIA_fake_script() -- SpeedButton.speedScript 
+local function VWBJNA_fake_script() -- SpeedButton.speedScript 
 	local script = Instance.new('LocalScript', SpeedButton)
 
 	script.Parent.Activated:Connect(function()
@@ -209,8 +209,8 @@ local function GYGIA_fake_script() -- SpeedButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(GYGIA_fake_script)()
-local function AMEU_fake_script() -- espButton.EspScript 
+coroutine.wrap(VWBJNA_fake_script)()
+local function UTNYOH_fake_script() -- espButton.EspScript 
 	local script = Instance.new('LocalScript', espButton)
 
 	script.Parent.Activated:Connect(function()
@@ -271,8 +271,8 @@ local function AMEU_fake_script() -- espButton.EspScript
 		end
 	end)
 end
-coroutine.wrap(AMEU_fake_script)()
-local function XQXX_fake_script() -- DamageIndicatorButton.speedScript 
+coroutine.wrap(UTNYOH_fake_script)()
+local function QXLDS_fake_script() -- DamageIndicatorButton.speedScript 
 	local script = Instance.new('LocalScript', DamageIndicatorButton)
 
 	local players = game:GetService("Players")
@@ -351,22 +351,22 @@ local function XQXX_fake_script() -- DamageIndicatorButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(XQXX_fake_script)()
-local function QEDTBL_fake_script() -- AzuC.CoreGuiParent 
+coroutine.wrap(QXLDS_fake_script)()
+local function FQMIA_fake_script() -- AzuC.CoreGuiParent 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local CoreGui = game:GetService("CoreGui")
 	script.Parent.Parent = CoreGui
 end
-coroutine.wrap(QEDTBL_fake_script)()
-local function UVTTBN_fake_script() -- AzuC.LocalScript 
+coroutine.wrap(FQMIA_fake_script)()
+local function IHJDPHA_fake_script() -- AzuC.LocalScript 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local userinputservice = game:GetService("UserInputService")
 	userinputservice.InputBegan:Connect(function(input)
 		if input.KeyCode == Enum.KeyCode.RightShift then
 			script.Parent.Tab1.Visible = not script.Parent.Tab1.Visible
-			script.Parent.Tab2.Visible = not script.Parent.Tab1.Visible
+			script.Parent.Tab2.Visible = not script.Parent.Tab2.Visible
 		end
 	end)
 	--nametag
@@ -386,8 +386,8 @@ local function UVTTBN_fake_script() -- AzuC.LocalScript
 	end)
 	
 end
-coroutine.wrap(UVTTBN_fake_script)()
-local function IADX_fake_script() -- KillauraButton.speedScript 
+coroutine.wrap(IHJDPHA_fake_script)()
+local function YEJWT_fake_script() -- KillauraButton.speedScript 
 	local script = Instance.new('LocalScript', KillauraButton)
 
 	
@@ -582,4 +582,4 @@ local function IADX_fake_script() -- KillauraButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(IADX_fake_script)()
+coroutine.wrap(YEJWT_fake_script)()
