@@ -13,6 +13,8 @@ local espButton = Instance.new("TextButton")
 local UICorner_3 = Instance.new("UICorner")
 local DamageIndicatorButton = Instance.new("TextButton")
 local UICorner_4 = Instance.new("UICorner")
+local DamageIndicatorButton_2 = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
 local ArrayList = Instance.new("Frame")
 local speedlabel = Instance.new("TextLabel")
 local esplabel = Instance.new("TextLabel")
@@ -21,8 +23,8 @@ local auralabel = Instance.new("TextLabel")
 local Tab2 = Instance.new("Frame")
 local TabName_2 = Instance.new("TextLabel")
 local KillauraButton = Instance.new("TextButton")
-local UICorner_5 = Instance.new("UICorner")
 local UICorner_6 = Instance.new("UICorner")
+local UICorner_7 = Instance.new("UICorner")
 
 --Properties:
 
@@ -92,6 +94,20 @@ DamageIndicatorButton.TextSize = 14.000
 DamageIndicatorButton.TextWrapped = true
 
 UICorner_4.Parent = DamageIndicatorButton
+
+DamageIndicatorButton_2.Name = "DamageIndicatorButton"
+DamageIndicatorButton_2.Parent = Tab1
+DamageIndicatorButton_2.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+DamageIndicatorButton_2.Position = UDim2.new(0, 0, 2.81999993, 0)
+DamageIndicatorButton_2.Size = UDim2.new(0, 160, 0, 50)
+DamageIndicatorButton_2.Font = Enum.Font.SourceSans
+DamageIndicatorButton_2.Text = "Indicator"
+DamageIndicatorButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+DamageIndicatorButton_2.TextScaled = true
+DamageIndicatorButton_2.TextSize = 14.000
+DamageIndicatorButton_2.TextWrapped = true
+
+UICorner_5.Parent = DamageIndicatorButton_2
 
 ArrayList.Name = "ArrayList"
 ArrayList.Parent = AzuC
@@ -187,13 +203,13 @@ KillauraButton.TextScaled = true
 KillauraButton.TextSize = 14.000
 KillauraButton.TextWrapped = true
 
-UICorner_5.Parent = KillauraButton
+UICorner_6.Parent = KillauraButton
 
-UICorner_6.Parent = Tab2
+UICorner_7.Parent = Tab2
 
 -- Scripts:
 
-local function VWBJNA_fake_script() -- SpeedButton.speedScript 
+local function AYFRWT_fake_script() -- SpeedButton.speedScript 
 	local script = Instance.new('LocalScript', SpeedButton)
 
 	script.Parent.Activated:Connect(function()
@@ -209,8 +225,8 @@ local function VWBJNA_fake_script() -- SpeedButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(VWBJNA_fake_script)()
-local function UTNYOH_fake_script() -- espButton.EspScript 
+coroutine.wrap(AYFRWT_fake_script)()
+local function NFMGQ_fake_script() -- espButton.EspScript 
 	local script = Instance.new('LocalScript', espButton)
 
 	script.Parent.Activated:Connect(function()
@@ -271,8 +287,8 @@ local function UTNYOH_fake_script() -- espButton.EspScript
 		end
 	end)
 end
-coroutine.wrap(UTNYOH_fake_script)()
-local function QXLDS_fake_script() -- DamageIndicatorButton.speedScript 
+coroutine.wrap(NFMGQ_fake_script)()
+local function MRMMZI_fake_script() -- DamageIndicatorButton.speedScript 
 	local script = Instance.new('LocalScript', DamageIndicatorButton)
 
 	local players = game:GetService("Players")
@@ -351,15 +367,95 @@ local function QXLDS_fake_script() -- DamageIndicatorButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(QXLDS_fake_script)()
-local function FQMIA_fake_script() -- AzuC.CoreGuiParent 
+coroutine.wrap(MRMMZI_fake_script)()
+local function PNIZNNG_fake_script() -- DamageIndicatorButton_2.speedScript 
+	local script = Instance.new('LocalScript', DamageIndicatorButton_2)
+
+	local players = game:GetService("Players")
+	local textservice = game:GetService("TextService")
+	local repstorage = game:GetService("ReplicatedStorage")
+	local lplr = players.LocalPlayer
+	local lighting = game:GetService("Lighting")
+	local cam = workspace.CurrentCamera
+	workspace:GetPropertyChangedSignal("CurrentCamera"):Connect(function()
+		cam = (workspace.CurrentCamera or workspace:FindFirstChild("Camera") or Instance.new("Camera"))
+	end)
+	local targetinfo = shared.VapeTargetInfo
+	local collectionservice = game:GetService("CollectionService")
+	local uis = game:GetService("UserInputService")
+	local mouse = lplr:GetMouse()
+	local bedwars = {}
+	local bedwarsblocks = {}
+	local blockraycast = RaycastParams.new()
+	blockraycast.FilterType = Enum.RaycastFilterType.Whitelist
+	local getfunctions
+	local oldchar
+	local oldcloneroot
+	local matchState = 0
+	local kit = ""
+	local antivoidypos = 0
+	local kills = 0
+	local beds = 0
+	local reported = 0
+	local lagbacks = 0
+	local otherlagbacks = 0
+	local matchstatetick = 0
+	local lagbackevent = Instance.new("BindableEvent")
+	local allowspeed = true
+	local antivoiding = false
+	local textchatservice = game:GetService("TextChatService")
+	local KnitGotten, KnitClient
+	repeat
+		task.wait()
+		KnitGotten, KnitClient = pcall(function()
+			return debug.getupvalue(require(lplr.PlayerScripts.TS.knit).setup, 6)
+		end)
+	until KnitGotten
+	repeat task.wait() until debug.getupvalue(KnitClient.Start, 1) == true
+	bedwars = {
+		
+		["DamageController"] = KnitClient.Controllers.DamageController,
+		["DamageIndicator"] = KnitClient.Controllers.DamageIndicatorController.spawnDamageIndicator,
+		["DamageIndicatorController"] = KnitClient.Controllers.DamageIndicatorController,
+		
+	}
+	local Messages = {"Pow!","Thump!","Wham!","Hit!","Smack!","Bang!","Pop!","Boom!", "Haram!", "Kabam!", "Skuuuura!", "Ablam!", "Pha pha!", "inf"}
+	local old
+	Create = old
+	
+	script.Parent.Activated:Connect(function()
+		if script.Parent.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
+			old = debug.getupvalue(bedwars["DamageIndicator"],10,{Create})
+			debug.setupvalue(bedwars["DamageIndicator"],10,{
+				Create = function(self,obj,...)
+					spawn(function()
+						pcall(function()
+							obj.Parent.Text = Messages[math.random(1,#Messages)]
+							obj.Parent.TextColor3 =  Color3.fromHSV(tick()%5/5,1,1)
+						end)
+					end)
+					return game:GetService("TweenService"):Create(obj,...)
+				end
+			})
+			script.Parent.BackgroundColor3  = Color3.fromRGB(255, 0, 4)
+			script.Parent.Parent.Parent.ArrayList.indicatorlabel.Visible = true
+		else
+			
+			script.Parent.BackgroundColor3 = Color3.fromRGB(42,42,42)
+			script.Parent.Parent.Parent.ArrayList.indicatorlabel.Visible = false
+			
+		end
+	end)
+end
+coroutine.wrap(PNIZNNG_fake_script)()
+local function NFMHE_fake_script() -- AzuC.CoreGuiParent 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local CoreGui = game:GetService("CoreGui")
 	script.Parent.Parent = CoreGui
 end
-coroutine.wrap(FQMIA_fake_script)()
-local function IHJDPHA_fake_script() -- AzuC.LocalScript 
+coroutine.wrap(NFMHE_fake_script)()
+local function NTBELV_fake_script() -- AzuC.LocalScript 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local userinputservice = game:GetService("UserInputService")
@@ -386,200 +482,152 @@ local function IHJDPHA_fake_script() -- AzuC.LocalScript
 	end)
 	
 end
-coroutine.wrap(IHJDPHA_fake_script)()
-local function YEJWT_fake_script() -- KillauraButton.speedScript 
+coroutine.wrap(NTBELV_fake_script)()
+local function RRSJQXO_fake_script() -- KillauraButton.speedScript 
 	local script = Instance.new('LocalScript', KillauraButton)
 
-	
-	
-	
-	--[[
-	################################################################################################################################
-	#############################################################OTHER########################################################
-	########################################################################################################################
-	
-	]]
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	local players = game:GetService("Players")
+	local textservice = game:GetService("TextService")
+	local repstorage = game:GetService("ReplicatedStorage")
+	local lplr = players.LocalPlayer
+	local lighting = game:GetService("Lighting")
+	local cam = workspace.CurrentCamera
+	workspace:GetPropertyChangedSignal("CurrentCamera"):Connect(function()
+		cam = (workspace.CurrentCamera or workspace:FindFirstChild("Camera") or Instance.new("Camera"))
+	end)
+	
+	local targetinfo = shared.VapeTargetInfo
+	local entityLibrary = shared.vapeentity
+	local collectionservice = game:GetService("CollectionService")
+	local uis = game:GetService("UserInputService")
+	local mouse = lplr:GetMouse()
+	local bedwars = {}
+	local bedwarsblocks = {}
+	local blockraycast = RaycastParams.new()
+	blockraycast.FilterType = Enum.RaycastFilterType.Whitelist
+	local getfunctions
+	local oldchar
+	local oldcloneroot
+	local matchState = 0
+	local kit = ""
+	local antivoidypos = 0
+	local kills = 0
+	local beds = 0
+	local reported = 0
+	local lagbacks = 0
+	local otherlagbacks = 0
+	local matchstatetick = 0
+	local lagbackevent = Instance.new("BindableEvent")
+	local allowspeed = true
+	local antivoiding = false
+	local textchatservice = game:GetService("TextChatService")
+	local KnitGotten, KnitClient
+	repeat
+		task.wait()
+		KnitGotten, KnitClient = pcall(function()
+			return debug.getupvalue(require(lplr.PlayerScripts.TS.knit).setup, 6)
+		end)
+	until KnitGotten
+	repeat task.wait() until debug.getupvalue(KnitClient.Start, 1) == true
+	function isalive(plr, alivecheck)
+		if plr then
+			local ind, tab = entityLibrary.getEntityFromPlayer(plr)
+			return ((not alivecheck) or tab and tab.Humanoid:GetState() ~= Enum.HumanoidStateType.Dead) and tab
+		end
+		return entityLibrary.isAlive
+	end
+	
+	bedwars = {
+		
+		["DamageController"] = KnitClient.Controllers.DamageController,
+		["DamageIndicator"] = KnitClient.Controllers.DamageIndicatorController.spawnDamageIndicator,
+		["DamageIndicatorController"] = KnitClient.Controllers.DamageIndicatorController,
+		
+	}
+	local function getremote(tab)
+		for i,v in pairs(tab) do
+			if v == "Client" then
+				return tab[i + 1]
+			end
+		end
+		return ""
+	end
+	local currentinventory = {
+		["inventory"] = {
+			["items"] = {},
+			["armor"] = {},
+			["hand"] = nil
+		}
+	}
+	local function getSword()
+		local bestsword, bestswordslot, bestswordnum = nil, nil, 0
+		for i5, v5 in pairs(currentinventory.inventory.items) do
+			if bedwars["ItemTable"][v5.itemType]["sword"] then
+				local swordrank = bedwars["ItemTable"][v5.itemType]["sword"]["damage"] or 0
+				if swordrank > bestswordnum then
+					bestswordnum = swordrank
+					bestswordslot = i5
+					bestsword = v5
+				end
+			end
+		end
+		return bestsword, bestswordslot
+		
+	end
+	local Client = require(game:GetService("ReplicatedStorage").TS.remotes).default.Client
+	local HitRemote = Client:Get(bedwars["SwordRemote"])
+	local client = require(game:GetService("ReplicatedStorage").TS.remotes).default.Client
 	script.Parent.Activated:Connect(function()
 		if script.Parent.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
-			local entity = loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/Libraries/entityHandler.lua", true))()
-			local DistVal = 18
-			local cam = workspace.CurrentCamera
-			local itemstuff = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.item["item-meta"]).getItemMeta, 1)
-			local InventoryUtil = require(game:GetService("ReplicatedStorage").TS.inventory["inventory-util"]).InventoryUtil
-			local function getremote(tab)
-				for i,v in pairs(tab) do
-					if v == "Client" then
-						return tab[i + 1]
-					end
+			local anims = { --Moon stuff that was probably helped by vape no cap
+				Normal = {
+					{CFrame = CFrame.new(1, -1, 2) * CFrame.Angles(math.rad(295), math.rad(55), math.rad(290)), Time = 0.25},
+					{CFrame = CFrame.new(-1, 1, -2.2) * CFrame.Angles(math.rad(200), math.rad(60), math.rad(1)), Time = 0.25}
+				},
+			}
+			local origC0 = cam.Viewmodel.RightHand.RightWrist.C0
+			local ui2 = Instance.new("ScreenGui")
+			local nearestID = nil
+			ui2.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+			local target = nil
+			repeat
+				if not isalive(lplr) then
+					repeat wait() until isalive(lplr)
 				end
-				return ""
-			end
-			local lplr = game.Players.LocalPlayer
-			local function getinv(plr)
-				local plr = plr or lplr
-				local thingy, thingytwo = pcall(function() return InventoryUtil.getInventory(plr) end)
-				return (thingy and thingytwo or {
-					items = {},
-					armor = {},
-					hand = nil
-				})
-			end
-	
-	
-			local KnitClient = debug.getupvalue(require(lplr.PlayerScripts.TS.knit).setup, 6)
-			local function getsword()
-				local sd
-				local higherdamage
-				local swordslots
-				local swords = getinv().items
-				for i, v in pairs(swords) do
-					if v.itemType:lower():find("sword") or v.itemType:lower():find("blade") then
-						if higherdamage == nil or itemstuff[v.itemType].sword.damage > higherdamage then
-							sd = v
-							higherdamage = itemstuff[v.itemType].sword.damage
-							swordslots = i
-						end
-					end
-				end
-				return sd, swordslots
-			end
-	
-			local Client = require(game:GetService("ReplicatedStorage").TS.remotes).default.Client
-			local attackentitycont = Client:Get(getremote(debug.getconstants(getmetatable(KnitClient.Controllers.SwordController)["attackEntity"])))  
-	
-			local function hvFunc(lol)
-				return {hashedval = lol}
-			end
-			if entity.isAlive then
-				pcall(function()
-					for i,v in pairs(game.Players:GetChildren()) do
-						if v.Character and v.Name ~= game.Players.LocalPlayer.Name and v.Character:FindFirstChild("HumanoidRootPart") then
-							local mag = (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-							if mag <= DistVal["Value"] and v.Team ~= game.Players.LocalPlayer.Team and v.Character:FindFirstChild("Humanoid") then
-	
-	
-	
-								local GBW = getsword()
-								local selfPosition = lplr.Character.HumanoidRootPart.Position + (DistVal["Value"] > 14 and (lplr.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude > 14 and (CFrame.lookAt(lplr.Character.HumanoidRootPart.Position, v.Character.HumanoidRootPart.Position).lookVector * 4) or Vector3.new(0, 0, 0))
-								local Entity = v.Character
-								local target = v.Character:GetPrimaryPartCFrame().Position
-								attackentitycont:CallServer({
-									["chargedAttack"] = {["chargeRatio"] = 1},
-									["weapon"] = GBW ~= nil and GBW.tool,
-									["entityInstance"] = Entity,
-									["validate"] = {["targetPosition"] = {["value"] = target,
-										["hash"] = hvFunc(target)},
-									["raycast"] = {
-										["cameraPosition"] = hvFunc(cam.CFrame.Position), 
-										["cursorDirection"] = hvFunc(Ray.new(cam.CFrame.Position, v.Character:GetPrimaryPartCFrame().Position).Unit.Direction)
+				for _,v in pairs(game.Players:GetPlayers()) do
+					if v ~= lplr then
+						nearestID = v
+						target = v.Name
+						if v.Team ~= lplr.Team and v ~= lplr and isalive(v) and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character.HumanoidRootPart.Position - lplr.Character.HumanoidRootPart.Position).Magnitude < 20 then
+							local sword = getSword()
+							if sword ~= nil then
+								bedwars["SwordController"].lastAttack = game:GetService("Workspace"):GetServerTimeNow() - 0.11
+								HitRemote:SendToServer({
+									["weapon"] = sword.tool,
+									["entityInstance"] = v.Character,
+									["validate"] = {
+										["raycast"] = {
+											["cameraPosition"] = hashFunc(cam.CFrame.Position),
+											["cursorDirection"] = hashFunc(Ray.new(cam.CFrame.Position, v.Character:FindFirstChild("HumanoidRootPart").Position).Unit.Direction)
+										},
+										["targetPosition"] = hashFunc(v.Character:FindFirstChild("HumanoidRootPart").Position),
+										["selfPosition"] = hashFunc(lplr.Character:FindFirstChild("HumanoidRootPart").Position + ((lplr.Character:FindFirstChild("HumanoidRootPart").Position - v.Character:FindFirstChild("HumanoidRootPart").Position).magnitude > 14 and (CFrame.lookAt(lplr.Character:FindFirstChild("HumanoidRootPart").Position, v.Character:FindFirstChild("HumanoidRootPart").Position).LookVector * 4) or Vector3.new(0, 0, 0)))
 									},
-									["selfPosition"] = {["value"] = selfPosition,
-										["hash"] = hvFunc(selfPosition)
-									}
-									}
+									["chargedAttack"] = {["chargeRatio"] = 0.8}
 								})
-								task.wait(0.3)
 							end
 						end
 					end
-				end)
-			end
-	
-	
+				end
+			until script.Parent.BackgroundColor3  == Color3.fromRGB(255, 0, 4)
 			script.Parent.BackgroundColor3  = Color3.fromRGB(255, 0, 4)
 			script.Parent.Parent.Parent.ArrayList.auralabel.Visible = true
 		else
-			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+			
 			script.Parent.BackgroundColor3 = Color3.fromRGB(42,42,42)
 			script.Parent.Parent.Parent.ArrayList.auralabel.Visible = false
 			
 		end
 	end)
 end
-coroutine.wrap(YEJWT_fake_script)()
+coroutine.wrap(RRSJQXO_fake_script)()
