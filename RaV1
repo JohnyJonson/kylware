@@ -15,13 +15,12 @@ local DamageIndicatorButton = Instance.new("TextButton")
 local UICorner_4 = Instance.new("UICorner")
 local texturepackbtn = Instance.new("TextButton")
 local UICorner_5 = Instance.new("UICorner")
-local Options = Instance.new("Frame")
-local Mode = Instance.new("TextBox")
 local ArrayList = Instance.new("Frame")
 local speedlabel = Instance.new("TextLabel")
 local esplabel = Instance.new("TextLabel")
 local indicatorlabel = Instance.new("TextLabel")
 local auralabel = Instance.new("TextLabel")
+local TEXTUREPACK = Instance.new("TextLabel")
 
 --Properties:
 
@@ -95,7 +94,7 @@ UICorner_4.Parent = DamageIndicatorButton
 texturepackbtn.Name = "texturepackbtn"
 texturepackbtn.Parent = Tab1
 texturepackbtn.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
-texturepackbtn.Position = UDim2.new(0.213010013, 0, 5.4000001, 0)
+texturepackbtn.Position = UDim2.new(0.213010013, 0, 5.28000021, 0)
 texturepackbtn.Size = UDim2.new(0, 160, 0, 50)
 texturepackbtn.Font = Enum.Font.SourceSans
 texturepackbtn.Text = "TexturePack"
@@ -106,36 +105,19 @@ texturepackbtn.TextWrapped = true
 
 UICorner_5.Parent = texturepackbtn
 
-Options.Name = "Options"
-Options.Parent = texturepackbtn
-Options.BackgroundColor3 = Color3.fromRGB(112, 112, 112)
-Options.Position = UDim2.new(0, 0, 0.920000017, 0)
-Options.Size = UDim2.new(0, 160, 0, 39)
-
-Mode.Name = "Mode"
-Mode.Parent = Options
-Mode.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Mode.Size = UDim2.new(0, 118, 0, 23)
-Mode.Font = Enum.Font.SourceSans
-Mode.PlaceholderText = "Select TexturePack mode"
-Mode.Text = ""
-Mode.TextColor3 = Color3.fromRGB(0, 0, 0)
-Mode.TextSize = 14.000
-
 ArrayList.Name = "ArrayList"
 ArrayList.Parent = AzuC
 ArrayList.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 ArrayList.BackgroundTransparency = 1.000
-ArrayList.Position = UDim2.new(0.814050913, 0, 0, 0)
+ArrayList.Position = UDim2.new(0.813679218, 0, 0, 0)
 ArrayList.Size = UDim2.new(0, 224, 0, 495)
 
 speedlabel.Name = "speedlabel"
 speedlabel.Parent = ArrayList
 speedlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 speedlabel.BackgroundTransparency = 1.000
-speedlabel.Position = UDim2.new(0.401785702, 0, 0.167676762, 0)
+speedlabel.Position = UDim2.new(0.424107134, 0, 0.226262629, 0)
 speedlabel.Size = UDim2.new(0, 200, 0, 50)
-speedlabel.Visible = false
 speedlabel.Font = Enum.Font.Code
 speedlabel.Text = "speed"
 speedlabel.TextColor3 = Color3.fromRGB(147, 1, 188)
@@ -147,9 +129,8 @@ esplabel.Name = "esplabel"
 esplabel.Parent = ArrayList
 esplabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 esplabel.BackgroundTransparency = 1.000
-esplabel.Position = UDim2.new(0.504464269, 0, 0.220202014, 0)
+esplabel.Position = UDim2.new(0.486607134, 0, 0.268686861, 0)
 esplabel.Size = UDim2.new(0, 200, 0, 50)
-esplabel.Visible = false
 esplabel.Font = Enum.Font.Code
 esplabel.Text = "esp"
 esplabel.TextColor3 = Color3.fromRGB(147, 1, 188)
@@ -161,11 +142,10 @@ indicatorlabel.Name = "indicatorlabel"
 indicatorlabel.Parent = ArrayList
 indicatorlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 indicatorlabel.BackgroundTransparency = 1.000
-indicatorlabel.Position = UDim2.new(0.174107149, 0, 0.13131313, 0)
+indicatorlabel.Position = UDim2.new(0.236607149, 0, 0.167676762, 0)
 indicatorlabel.Size = UDim2.new(0, 200, 0, 50)
-indicatorlabel.Visible = false
 indicatorlabel.Font = Enum.Font.Code
-indicatorlabel.Text = "CustomIndicator"
+indicatorlabel.Text = "customdamage"
 indicatorlabel.TextColor3 = Color3.fromRGB(147, 1, 188)
 indicatorlabel.TextSize = 22.000
 indicatorlabel.TextStrokeTransparency = 0.330
@@ -175,9 +155,8 @@ auralabel.Name = "auralabel"
 auralabel.Parent = ArrayList
 auralabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 auralabel.BackgroundTransparency = 1.000
-auralabel.Position = UDim2.new(0.450892866, 0, 0.195959598, 0)
+auralabel.Position = UDim2.new(0.455357164, 0, 0.248484835, 0)
 auralabel.Size = UDim2.new(0, 200, 0, 50)
-auralabel.Visible = false
 auralabel.Font = Enum.Font.Code
 auralabel.Text = "aura"
 auralabel.TextColor3 = Color3.fromRGB(147, 1, 188)
@@ -185,9 +164,22 @@ auralabel.TextSize = 22.000
 auralabel.TextStrokeTransparency = 0.330
 auralabel.TextWrapped = true
 
+TEXTUREPACK.Name = "TEXTUREPACK"
+TEXTUREPACK.Parent = ArrayList
+TEXTUREPACK.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TEXTUREPACK.BackgroundTransparency = 1.000
+TEXTUREPACK.Position = UDim2.new(0.330357164, 0, 0.202020198, 0)
+TEXTUREPACK.Size = UDim2.new(0, 200, 0, 50)
+TEXTUREPACK.Font = Enum.Font.Code
+TEXTUREPACK.Text = "textures"
+TEXTUREPACK.TextColor3 = Color3.fromRGB(147, 1, 188)
+TEXTUREPACK.TextSize = 22.000
+TEXTUREPACK.TextStrokeTransparency = 0.330
+TEXTUREPACK.TextWrapped = true
+
 -- Scripts:
 
-local function JZLBN_fake_script() -- SpeedButton.speedScript 
+local function EMRTD_fake_script() -- SpeedButton.speedScript 
 	local script = Instance.new('LocalScript', SpeedButton)
 
 	script.Parent.Activated:Connect(function()
@@ -203,8 +195,8 @@ local function JZLBN_fake_script() -- SpeedButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(JZLBN_fake_script)()
-local function YFUFI_fake_script() -- espButton.EspScript 
+coroutine.wrap(EMRTD_fake_script)()
+local function QAPPDL_fake_script() -- espButton.EspScript 
 	local script = Instance.new('LocalScript', espButton)
 
 	script.Parent.Activated:Connect(function()
@@ -265,8 +257,8 @@ local function YFUFI_fake_script() -- espButton.EspScript
 		end
 	end)
 end
-coroutine.wrap(YFUFI_fake_script)()
-local function UWVKJZD_fake_script() -- DamageIndicatorButton.speedScript 
+coroutine.wrap(QAPPDL_fake_script)()
+local function FOKOS_fake_script() -- DamageIndicatorButton.speedScript 
 	local script = Instance.new('LocalScript', DamageIndicatorButton)
 
 	local players = game:GetService("Players")
@@ -345,33 +337,33 @@ local function UWVKJZD_fake_script() -- DamageIndicatorButton.speedScript
 		end
 	end)
 end
-coroutine.wrap(UWVKJZD_fake_script)()
-local function HSQB_fake_script() -- texturepackbtn.speedScript 
+coroutine.wrap(FOKOS_fake_script)()
+local function NPFDRV_fake_script() -- texturepackbtn.packscript 
 	local script = Instance.new('LocalScript', texturepackbtn)
 
 	script.Parent.Activated:Connect(function()
 		if script.Parent.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/JohnyJonson/kylware/main/TexturePackForRaclientv1", true))()
+		
 			script.Parent.BackgroundColor3  = Color3.fromRGB(255, 0, 4)
-			script.Parent.Parent.Parent.ArrayList.speedlabel.Visible = true
+			script.Parent.Parent.Parent.ArrayList.TEXTUREPACK.Visible = true
 			
 		else
-			
+		print("OFF")
 			script.Parent.BackgroundColor3 = Color3.fromRGB(42,42,42)
-			script.Parent.Parent.Parent.ArrayList.speedlabel.Visible = false
+			script.Parent.Parent.Parent.ArrayList.TEXTUREPACK.Visible = false
 			
 		end
 	end)
 end
-coroutine.wrap(HSQB_fake_script)()
-local function ECNNO_fake_script() -- AzuC.CoreGuiParent 
+coroutine.wrap(NPFDRV_fake_script)()
+local function ITXXZM_fake_script() -- AzuC.CoreGuiParent 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local CoreGui = game:GetService("CoreGui")
 	script.Parent.Parent = CoreGui
 end
-coroutine.wrap(ECNNO_fake_script)()
-local function DXZG_fake_script() -- AzuC.LocalScript 
+coroutine.wrap(ITXXZM_fake_script)()
+local function SZZYL_fake_script() -- AzuC.LocalScript 
 	local script = Instance.new('LocalScript', AzuC)
 
 	local userinputservice = game:GetService("UserInputService")
@@ -381,21 +373,21 @@ local function DXZG_fake_script() -- AzuC.LocalScript
 			script.Parent.Tab2.Visible = not script.Parent.Tab2.Visible
 		end
 	end)
-	--nametag
-	local ServerScriptService = game:GetService("ServerScriptService")
-	local ChatService = require(ServerScriptService:WaitForChild("ChatServiceRunner"):WaitForChild("ChatService"))
-	local Players = game:GetService("Players")
-	
-	local Owner = {'myswadsWW'} --Change YOUR NAME to your username
-	
-	ChatService.SpeakerAdded:Connect(function(PlrName)
-		local Speaker = ChatService:GetSpeaker(PlrName)
-		for _, v in pairs(Owner) do
-			if Players[PlrName].Name == v then
-				Speaker:SetExtraData('Tags', {{TagText = "AzuC PRIVATE", TagColor = Color3.fromRGB(132, 14, 136)}})
-			end
-		end
-	end)
 	
 end
-coroutine.wrap(DXZG_fake_script)()
+coroutine.wrap(SZZYL_fake_script)()
+local function BXZNX_fake_script() -- AzuC.fly 
+	local script = Instance.new('LocalScript', AzuC)
+
+	local userinputservice = game:GetService("UserInputService")
+	userinputservice.InputBegan:Connect(function(input)
+		if input.KeyCode == Enum.KeyCode.G then
+			game.Workspace.Gravity = 0
+			
+		end
+		if input.KeyCode == Enum.KeyCode.X then
+			game.Workspace.Gravity = 196.2
+		end
+	end)
+end
+coroutine.wrap(BXZNX_fake_script)()
